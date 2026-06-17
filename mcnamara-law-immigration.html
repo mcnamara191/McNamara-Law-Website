@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>McNamara Law, PLLC — Orlando Immigration Attorneys</title>
+<meta name="description" content="McNamara Law, PLLC is a Central Florida immigration law firm helping families, workers, and new Americans understand and navigate the U.S. immigration system.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Public+Sans:wght@300;400;500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#141F33;
+    --ink-soft:#46536B;
+    --paper:#FBFBF9;
+    --surface:#FFFFFF;
+    --tint:#EDF1F9;
+    --line:#DDE2EA;
+    --cobalt:#1F4FD8;
+    --cobalt-deep:#16367F;
+    --stamp:#9D2235;
+    --display:'Newsreader', Georgia, serif;
+    --body:'Public Sans', -apple-system, sans-serif;
+    --mono:'Spline Sans Mono', 'Courier New', monospace;
+    --maxw:1180px;
+    --ease:cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--body);
+    background:var(--paper);
+    color:var(--ink);
+    font-size:16px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+
+  /* ---------- utility ---------- */
+  .code-tag{
+    font-family:var(--mono);
+    font-size:11.5px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--cobalt);
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+  }
+  .code-tag::before{
+    content:"";
+    width:26px;height:1px;background:var(--cobalt);
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:var(--body);font-weight:600;font-size:14.5px;
+    letter-spacing:.01em;text-decoration:none;
+    padding:14px 28px;border-radius:3px;
+    transition:all .22s var(--ease);cursor:pointer;border:1px solid transparent;
+  }
+  .btn-primary{background:var(--cobalt);color:#fff;}
+  .btn-primary:hover{background:var(--cobalt-deep);transform:translateY(-2px);}
+  .btn-ghost{border-color:var(--ink);color:var(--ink);background:transparent;}
+  .btn-ghost:hover{background:var(--ink);color:var(--paper);}
+  .btn-light{border-color:rgba(255,255,255,.45);color:#fff;background:transparent;}
+  .btn-light:hover{background:#fff;color:var(--ink);}
+  .arrow{font-family:var(--mono);transition:transform .3s var(--ease);}
+  .btn:hover .arrow{transform:translateX(4px);}
+/* ---------- nav ---------- */
+  header.site{
+    position:sticky;top:0;z-index:100;
+    background:rgba(251,251,249,.92);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:78px;}
+  .logo{text-decoration:none;display:flex;align-items:center;gap:12px;color:var(--ink);}
+  .logo-mark{width:42px;height:42px;flex-shrink:0;display:block;}
+  .logo-text{display:flex;flex-direction:column;line-height:1.1;}
+  .logo .name{font-family:var(--display);font-size:24px;font-weight:500;letter-spacing:.01em;color:var(--ink);}
+  .logo .sub{font-family:var(--mono);font-size:9.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--cobalt);margin-top:3px;}
+  .nav-links{display:flex;gap:34px;list-style:none;}
+  .nav-links a{
+    text-decoration:none;font-size:14px;font-weight:500;color:var(--ink-soft);
+    transition:color .25s var(--ease);position:relative;padding:4px 0;
+  }
+  .nav-links a::after{
+    content:"";position:absolute;left:0;bottom:0;width:0;height:1.5px;
+    background:var(--cobalt);transition:width .35s var(--ease);
+  }
+  .nav-links a:hover{color:var(--ink);}
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{display:flex;align-items:center;gap:14px;}
+  .nav .btn{padding:11px 22px;}
+  .menu-btn{display:none;background:none;border:none;cursor:pointer;padding:8px;}
+  .menu-btn span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;transition:.3s;}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;overflow:hidden;
+    padding:110px 0 96px;
+    background:
+      linear-gradient(180deg, var(--paper) 0%, #F3F5F2 100%);
+  }
+  .hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:60px;align-items:center;}
+  .hero h1{
+    font-family:var(--display);font-weight:400;
+    font-size:clamp(40px, 5.4vw, 66px);
+    line-height:1.08;letter-spacing:-.015em;
+    margin:26px 0 24px;
+  }
+  .hero h1 em{font-style:italic;color:var(--cobalt);}
+  .hero p.lede{
+    font-size:18px;color:var(--ink-soft);max-width:540px;
+    font-weight:300;margin-bottom:38px;
+  }
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;}
+  .hero-note{
+    margin-top:34px;font-family:var(--mono);font-size:12px;
+    color:var(--ink-soft);letter-spacing:.06em;
+  }
+  .hero-note b{color:var(--ink);font-weight:500;}
+
+  /* the stamp — signature element */
+  .stamp-wrap{display:flex;justify-content:center;}
+  .stamp{
+    position:relative;width:300px;height:300px;
+  }
+  .stamp svg{width:100%;height:100%;animation:spin 60s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .stamp .inner{
+    position:absolute;inset:0;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;text-align:center;gap:6px;
+  }
+  .stamp .inner .est{font-family:var(--mono);font-size:11px;letter-spacing:.3em;color:var(--stamp);}
+  .stamp .inner .word{
+    font-family:var(--display);font-style:italic;font-size:30px;color:var(--ink);
+  }
+  .stamp::after{
+    content:"";position:absolute;inset:34px;border:1.5px solid var(--stamp);
+    border-radius:50%;opacity:.55;
+  }
+
+  /* ---------- ribbon ---------- */
+  .ribbon{
+    background:var(--ink);color:#fff;padding:20px 0;
+  }
+  .ribbon .wrap{
+    display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap;
+  }
+  .ribbon span{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#AEBBD4;}
+  .ribbon span b{color:#fff;font-weight:500;}
+
+  /* ---------- sections ---------- */
+  section{padding:104px 0;}
+  .sec-head{max-width:680px;margin-bottom:64px;}
+  .sec-head h2{
+    font-family:var(--display);font-weight:400;
+    font-size:clamp(32px,3.8vw,46px);line-height:1.12;
+    letter-spacing:-.01em;margin:20px 0 18px;
+  }
+  .sec-head p{color:var(--ink-soft);font-size:16.5px;}
+
+  /* ---------- services ---------- */
+  .services{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  .svc{
+    background:var(--surface);padding:38px 32px 42px;
+    position:relative;transition:background .35s var(--ease);
+    display:flex;flex-direction:column;
+  }
+  .svc:hover{background:var(--tint);}
+  .svc .form-no{
+    font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+    color:var(--cobalt);border:1px solid var(--cobalt);
+    display:inline-block;align-self:flex-start;
+    padding:4px 10px;border-radius:2px;margin-bottom:22px;
+  }
+  .svc h3{font-family:var(--display);font-weight:500;font-size:23px;margin-bottom:12px;letter-spacing:-.005em;}
+  .svc p{font-size:14.5px;color:var(--ink-soft);flex:1;}
+  .svc .more{
+    margin-top:22px;font-size:13.5px;font-weight:600;color:var(--cobalt);
+    text-decoration:none;display:inline-flex;gap:8px;align-items:center;
+  }
+  .svc .more .arrow{font-size:13px;}
+  .svc .more:hover .arrow{transform:translateX(4px);}
+
+  /* ---------- about ---------- */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+  .about-copy h2{
+    font-family:var(--display);font-weight:400;
+    font-size:clamp(30px,3.4vw,42px);line-height:1.14;margin:20px 0 22px;letter-spacing:-.01em;
+  }
+  .about-copy p{color:var(--ink-soft);margin-bottom:18px;font-size:16px;}
+  .attorney-card{
+    background:var(--ink);color:#fff;padding:46px 44px;border-radius:4px;position:relative;
+  }
+  .attorney-card .code-tag{color:#8FA8E8;}
+  .attorney-card .code-tag::before{background:#8FA8E8;}
+  .attorney-card h3{font-family:var(--display);font-weight:400;font-size:30px;margin:18px 0 4px;}
+  .attorney-card .role{font-family:var(--mono);font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:#AEBBD4;margin-bottom:22px;}
+  .attorney-card p{color:#C8D0DF;font-size:15px;font-weight:300;}
+  .attorney-card .bar{
+    margin-top:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,.15);
+    display:flex;gap:36px;flex-wrap:wrap;
+  }
+  .attorney-card .bar div span{display:block;}
+  .attorney-card .bar .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#7E8DA8;margin-bottom:4px;}
+  .attorney-card .bar .v{font-size:14.5px;font-weight:500;}
+
+  /* ---------- principles ---------- */
+  .principles{background:var(--tint);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .prin-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;}
+  .prin h3{
+    font-family:var(--display);font-weight:500;font-size:21px;
+    margin:18px 0 10px;
+  }
+  .prin p{font-size:14.5px;color:var(--ink-soft);}
+  .prin .glyph{
+    width:46px;height:46px;border:1px solid var(--cobalt);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--mono);font-size:14px;color:var(--cobalt);
+  }
+
+  /* ---------- knowledge / FAQ ---------- */
+  .know-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:80px;align-items:start;}
+  .know-grid .sec-head{margin-bottom:28px;}
+  .faq{border-top:1px solid var(--line);}
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-q{
+    width:100%;background:none;border:none;cursor:pointer;
+    display:flex;justify-content:space-between;align-items:center;gap:24px;
+    padding:24px 4px;text-align:left;
+    font-family:var(--display);font-size:19px;font-weight:500;color:var(--ink);
+    transition:color .25s var(--ease);
+  }
+  .faq-q:hover{color:var(--cobalt);}
+  .faq-q .sign{
+    font-family:var(--mono);font-size:18px;color:var(--cobalt);
+    transition:transform .4s var(--ease);flex-shrink:0;
+  }
+  .faq-item.open .faq-q .sign{transform:rotate(45deg);}
+  .faq-a{
+    max-height:0;overflow:hidden;transition:max-height .5s var(--ease);
+  }
+  .faq-a p{padding:0 4px 26px;color:var(--ink-soft);font-size:15px;max-width:640px;}
+
+  /* ---------- insights ---------- */
+  .insights{background:var(--surface);border-top:1px solid var(--line);}
+  .ins-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
+  .ins-card{
+    border:1px solid var(--line);border-radius:4px;overflow:hidden;
+    text-decoration:none;display:flex;flex-direction:column;
+    transition:transform .4s var(--ease), box-shadow .4s var(--ease);background:var(--paper);
+  }
+  .ins-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px -22px rgba(20,31,51,.28);}
+  .ins-card .band{
+    height:7px;background:linear-gradient(90deg,var(--cobalt) 0%,var(--cobalt-deep) 100%);
+  }
+  .ins-card .pad{padding:30px 28px 32px;display:flex;flex-direction:column;flex:1;}
+  .ins-card .cat{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--cobalt);margin-bottom:14px;}
+  .ins-card h3{font-family:var(--display);font-weight:500;font-size:21px;line-height:1.25;margin-bottom:12px;}
+  .ins-card p{font-size:14px;color:var(--ink-soft);flex:1;}
+  .ins-card .read{margin-top:20px;font-size:13.5px;font-weight:600;color:var(--cobalt);display:inline-flex;gap:8px;align-items:center;}
+
+  /* ---------- big CTA ---------- */
+  .cta{
+    background:var(--ink);color:#fff;text-align:center;
+    position:relative;overflow:hidden;
+  }
+  .cta::before{
+    content:"I-130 · I-485 · N-400 · I-589 · I-765 · I-140 · I-751 · I-129F · I-90 · N-600 ·";
+    position:absolute;white-space:nowrap;left:0;right:0;top:30px;
+    font-family:var(--mono);font-size:12px;letter-spacing:.4em;
+    color:rgba(255,255,255,.07);text-align:center;overflow:hidden;
+  }
+  .cta h2{
+    font-family:var(--display);font-weight:400;
+    font-size:clamp(32px,4vw,50px);line-height:1.12;letter-spacing:-.01em;
+    max-width:720px;margin:0 auto 22px;
+  }
+  .cta p{color:#AEBBD4;max-width:520px;margin:0 auto 36px;font-weight:300;}
+  .cta .hero-actions{justify-content:center;}
+
+  /* ---------- contact ---------- */
+  .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:start;}
+  .c-info{display:flex;flex-direction:column;gap:0;margin-top:34px;border-top:1px solid var(--line);}
+  .c-row{display:flex;gap:24px;padding:22px 0;border-bottom:1px solid var(--line);}
+  .c-row .k{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--cobalt);width:90px;flex-shrink:0;padding-top:3px;}
+  .c-row .v{font-size:15.5px;}
+  .c-row .v a{text-decoration:none;color:var(--ink);transition:color .25s var(--ease);}
+  .c-row .v a:hover{color:var(--cobalt);}
+  .c-row .v small{display:block;color:var(--ink-soft);font-size:13px;margin-top:2px;}
+  form.intake{
+    background:var(--surface);border:1px solid var(--line);border-radius:4px;
+    padding:42px 40px;
+  }
+  form.intake h3{font-family:var(--display);font-weight:500;font-size:24px;margin-bottom:6px;}
+  form.intake .req{font-family:var(--mono);font-size:11px;color:var(--ink-soft);letter-spacing:.08em;margin-bottom:28px;display:block;}
+  .f-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px;}
+  .f-field{display:flex;flex-direction:column;gap:7px;margin-bottom:18px;}
+  .f-row .f-field{margin-bottom:0;}
+  .f-field label{font-size:12.5px;font-weight:600;letter-spacing:.03em;color:var(--ink);}
+  .f-field input,.f-field select,.f-field textarea{
+    font-family:var(--body);font-size:15px;color:var(--ink);
+    padding:12px 14px;border:1px solid var(--line);border-radius:3px;
+    background:var(--paper);transition:border-color .25s var(--ease), box-shadow .25s var(--ease);width:100%;
+  }
+  .f-field input:focus,.f-field select:focus,.f-field textarea:focus{
+    outline:none;border-color:var(--cobalt);box-shadow:0 0 0 3px rgba(31,79,216,.12);
+  }
+  .f-field textarea{resize:vertical;min-height:110px;}
+  form.intake .btn{width:100%;justify-content:center;margin-top:6px;}
+  form.intake .privacy{font-size:12px;color:var(--ink-soft);margin-top:16px;text-align:center;}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--ink);color:#AEBBD4;padding:72px 0 0;}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;padding-bottom:56px;}
+  .foot-grid h4{
+    font-family:var(--mono);font-size:11px;letter-spacing:.22em;
+    text-transform:uppercase;color:#7E8DA8;margin-bottom:20px;font-weight:500;
+  }
+  .foot-grid ul{list-style:none;}
+  .foot-grid li{margin-bottom:11px;}
+  .foot-grid a{color:#C8D0DF;text-decoration:none;font-size:14px;transition:color .25s var(--ease);}
+  .foot-grid a:hover{color:#fff;}
+  .foot-brand .logo-mark-foot{width:48px;height:48px;display:block;margin-bottom:18px;}
+  .foot-brand .name{font-family:var(--display);font-size:26px;color:#fff;font-weight:400;}
+  .foot-brand .sub{font-family:var(--mono);font-size:9.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--cobalt);margin:4px 0 18px;filter:brightness(1.6);}
+  .foot-brand p{font-size:13.5px;font-weight:300;max-width:300px;}
+  .disclaimer{
+    border-top:1px solid rgba(255,255,255,.12);padding:30px 0;
+    font-size:11.5px;color:#7E8DA8;line-height:1.7;
+  }
+  .foot-base{
+    border-top:1px solid rgba(255,255,255,.12);padding:22px 0;
+    display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+    font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;
+  }
+  .foot-base a{color:#AEBBD4;text-decoration:none;}
+  .foot-base a:hover{color:#fff;}
+
+  /* ---------- reveal ---------- */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .9s var(--ease), transform .9s var(--ease);}
+  .reveal.in{opacity:1;transform:none;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .reveal{opacity:1;transform:none;transition:none;}
+    .stamp svg{animation:none;}
+    *{transition-duration:.01ms !important;}
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 1020px){
+    .svc-grid{grid-template-columns:repeat(2,1fr);}
+    .ins-grid{grid-template-columns:1fr 1fr;}
+    .hero-grid{grid-template-columns:1fr;gap:48px;}
+    .stamp-wrap{justify-content:flex-start;}
+    .about-grid,.know-grid,.contact-grid{grid-template-columns:1fr;gap:52px;}
+    .prin-grid{grid-template-columns:1fr 1fr;gap:36px;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width: 720px){
+    .wrap{padding:0 22px;}
+    section{padding:72px 0;}
+    .hero{padding:72px 0 64px;}
+    .nav-links,.nav-cta .btn-ghost{display:none;}
+    .menu-btn{display:block;}
+    .svc-grid,.ins-grid,.prin-grid{grid-template-columns:1fr;}
+    .f-row{grid-template-columns:1fr;}
+    .topbar .tb-links{gap:14px;}
+    
+    .stamp{width:230px;height:230px;}
+    .stamp .inner .word{font-size:24px;}
+    form.intake{padding:30px 24px;}
+    .foot-grid{grid-template-columns:1fr;gap:36px;}
+    .nav-mobile{display:flex;}
+  }
+  /* mobile menu */
+  .m-menu{
+    display:none;flex-direction:column;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 22px 22px;
+  }
+  .m-menu.show{display:flex;}
+  .m-menu a{
+    text-decoration:none;color:var(--ink);font-size:16px;font-weight:500;
+    padding:13px 0;border-bottom:1px solid var(--line);
+  }
+  .m-menu a:last-child{border-bottom:none;}
+
+  /* ---------- cursor glow ---------- */
+  .cursor-glow{
+    position:fixed;top:0;left:0;
+    width:240px;height:240px;border-radius:50%;
+    background:radial-gradient(circle at center,
+      rgba(31,79,216,0.32) 0%,
+      rgba(31,79,216,0.14) 38%,
+      rgba(31,79,216,0) 70%);
+    pointer-events:none;
+    z-index:9999;
+    opacity:0;
+    transition:opacity .5s var(--ease);
+    will-change:transform, opacity;
+    transform:translate3d(-9999px, -9999px, 0);
+  }
+  .cursor-glow.is-visible{opacity:1;}
+  @media (pointer: coarse), (prefers-reduced-motion: reduce){
+    .cursor-glow{display:none;}
+  }
+</style>
+</head>
+<body>
+<div class="cursor-glow" aria-hidden="true"></div>
+
+
+</div>
+
+<!-- ======= NAV ======= -->
+<header class="site">
+  <div class="wrap nav">
+    <a class="logo" href="#top" aria-label="McNamara Law home">
+      <svg class="logo-mark" viewBox="0 0 512.4 512.4" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path fill="currentColor" d="M240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM235.73,49l-3.56,15.81,9.87-.91-6.31-14.9ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM235.73,49l-3.56,15.81,9.87-.91-6.31-14.9ZM235.73,49l-3.56,15.81,9.87-.91-6.31-14.9ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM350.5,89.02l8.43,5.17,3.88-15.72-12.31,10.54ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM350.5,89.02l8.43,5.17,3.88-15.72-12.31,10.54ZM235.73,49l-3.56,15.81,9.87-.91-6.31-14.9ZM235.73,49l-3.56,15.81,9.87-.91-6.31-14.9ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM350.5,89.02l8.43,5.17,3.88-15.72-12.31,10.54ZM410.04,114.52l-6.37-6.8-7.08,6.62,6.37,6.8c1.84,1.96,4.74,1.99,6.74.11,2.02-1.89,2.17-4.77.33-6.73ZM423.35,163.77l4.48,8.84,11.54-11.37-16.02,2.53ZM423.35,163.77l4.48,8.84,11.54-11.37-16.02,2.53ZM410.04,114.52l-6.37-6.8-7.08,6.62,6.37,6.8c1.84,1.96,4.74,1.99,6.74.11,2.02-1.89,2.17-4.77.33-6.73ZM350.5,89.02l8.43,5.17,3.88-15.72-12.31,10.54ZM235.73,49l-3.56,15.81,9.87-.91-6.31-14.9ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM235.73,49l-3.56,15.81,9.87-.91-6.31-14.9ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM350.5,89.02l8.43,5.17,3.88-15.72-12.31,10.54ZM410.04,114.52l-6.37-6.8-7.08,6.62,6.37,6.8c1.84,1.96,4.74,1.99,6.74.11,2.02-1.89,2.17-4.77.33-6.73ZM423.35,163.77l4.48,8.84,11.54-11.37-16.02,2.53ZM423.35,163.77l4.48,8.84,11.54-11.37-16.02,2.53ZM410.04,114.52l-6.37-6.8-7.08,6.62,6.37,6.8c1.84,1.96,4.74,1.99,6.74.11,2.02-1.89,2.17-4.77.33-6.73ZM350.5,89.02l8.43,5.17,3.88-15.72-12.31,10.54ZM235.73,49l-3.56,15.81,9.87-.91-6.31-14.9ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM235.73,49l-3.56,15.81,9.87-.91-6.31-14.9ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM350.5,89.02l8.43,5.17,3.88-15.72-12.31,10.54ZM410.04,114.52l-6.37-6.8-7.08,6.62,6.37,6.8c1.84,1.96,4.74,1.99,6.74.11,2.02-1.89,2.17-4.77.33-6.73ZM423.35,163.77l4.48,8.84,11.54-11.37-16.02,2.53ZM423.35,163.77l4.48,8.84,11.54-11.37-16.02,2.53ZM403.68,107.71l-7.08,6.62,6.37,6.8c1.84,1.96,4.74,1.99,6.74.11,2.02-1.89,2.17-4.77.33-6.73l-6.37-6.8ZM358.93,94.19l3.88-15.72-12.31,10.54,8.43,5.17ZM232.17,64.81l9.87-.91-6.31-14.9-3.56,15.81ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM256.2,0C114.71,0,0,114.71,0,256.2s114.71,256.2,256.2,256.2,256.2-114.71,256.2-256.2S397.7,0,256.2,0ZM115.54,80.04c10.7-8.57,24.71-8.34,34.06.11l-11.8,9.46c-4.12-2.62-9.52-2.22-13.7,1.15-5.64,4.51-6.5,12.26-1.89,18.01,4.62,5.76,12.37,6.62,18,2.1,4.19-3.35,5.78-8.54,4.1-13.11l11.8-9.46c6.22,10.97,3.38,24.7-7.32,33.26-12.16,9.75-28.51,8.15-37.97-3.65-9.46-11.81-7.45-28.12,4.71-37.87ZM59.72,146.81l26.55,2.43-13.74-22.79,9.23-14.71,43.54,27.37-7.57,12.04-25.24-15.86,12.94,21.42-4.28,6.82-24.92-2.38,25.24,15.87-7.57,12.04-43.52-27.35,9.35-14.89ZM76.88,293.3l-10.64-5.58-10.64,5.58,2.04-11.84-8.6-8.39,11.12-.17,6.08-12.33,6.05,12.26,11.16.23-8.61,8.39,2.04,11.84ZM198.32,461.24l-29.82-13.95,21.78-46.57,12.88,6.03-16.1,34.41,16.94,7.93-5.69,12.14ZM247.59,470.05l-1.54-7.29-18.15-1.98-3.06,6.79-15.18-1.66,23.94-49.1,16.65,1.83,12.81,53.1-15.48-1.69ZM318.38,457.85l-17.05-24.45,1.76,29.73-13.46,4.65-33.11-42.93,14.86-5.14,18.57,26.61-1.96-32.34,12.11-4.19,18.57,26.61-1.95-32.34,14.5-5.02.59,54.19-13.44,4.65ZM256.2,385.35c-70.74,0-128.17-56.86-129.13-127.37-2.34.51-5.33.95-8.66.95-6.73,0-12.93-1.72-18.4-5.11-3.85-2.38-6.73-4.22-8.6-5.48-5.48-.02-13.37-.69-20.02-3.95-5.7-2.79-9.97-6.62-12.63-9.47-9.05-.47-30.22-4.39-38.18-29.91-1.07-3.41-.44-7.17,1.67-10.05,2.13-2.88,5.52-4.6,9.1-4.6l112.87,1.46c22.3-38.71,64.1-64.76,111.98-64.76,71.32,0,129.15,57.82,129.15,129.15s-57.82,129.15-129.15,129.15ZM412.76,187.51l5.27-5.25-8.25-16.28-7.36,1.13-5.82-11.46-.02.06-12.07-12.88,5.78-17.15-2.7-2.88-11.63,10.89-9.73-10.38.62-.57-12.93-7.94,1.73-7.24-15.57-9.55-5.67,4.83-13.02-8,.27-.21-13.12-3.03,6.73-29.04-16.01,19.23-7.84-1.81-5.91-24.32-6.73,29.02-13.06-3.02.15.32-15.51,1.42-2.96-6.83-18.16,1.67-1.66,7.26-14.63,1.34.18.47-13.25,5.2-25.43-18.25,9.62,24.48-13.24,5.2-18.81-47.85,13.25-5.2,25.43,18.25-9.62-24.47,13.24-5.2,18.3,46.52,13.44-51.99,16.7-1.52,22.4,47.97,11.36-49.06,17.14,3.97,6.4,25.87,17.05-20.44,16.91,3.92-11.39,49.13,41.43-33.17,14.29,8.76-11,52.81,36.42-34.11,16.29,17.39c7.39,7.89,7.35,19.17-.21,26.25-4.95,4.63-11.48,5.75-17.41,3.65l-5.14,17.83,52.44-6.56,7.59,14.94-37.49,39.75-7.04-13.89ZM443.41,287.71l-10.64,5.58,2.04-11.84-8.6-8.39,11.12-.17,6.08-12.33,6.05,12.26,11.16.23-8.61,8.39,2.04,11.84-10.64-5.58ZM427.83,172.61l11.54-11.37-16.02,2.53,4.48,8.84ZM409.71,121.24c2.02-1.89,2.17-4.77.33-6.73l-6.37-6.8-7.08,6.62,6.37,6.8c1.84,1.96,4.74,1.99,6.74.11ZM358.93,94.19l3.88-15.72-12.31,10.54,8.43,5.17ZM233.47,448.21l9.85,1.07-3.21-15.85-6.64,14.78ZM232.17,64.81l9.87-.91-6.31-14.9-3.56,15.81ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM235.73,49l-3.56,15.81,9.87-.91-6.31-14.9ZM350.5,89.02l8.43,5.17,3.88-15.72-12.31,10.54ZM410.04,114.52l-6.37-6.8-7.08,6.62,6.37,6.8c1.84,1.96,4.74,1.99,6.74.11,2.02-1.89,2.17-4.77.33-6.73ZM423.35,163.77l4.48,8.84,11.54-11.37-16.02,2.53ZM423.35,163.77l4.48,8.84,11.54-11.37-16.02,2.53ZM410.04,114.52l-6.37-6.8-7.08,6.62,6.37,6.8c1.84,1.96,4.74,1.99,6.74.11,2.02-1.89,2.17-4.77.33-6.73ZM350.5,89.02l8.43,5.17,3.88-15.72-12.31,10.54ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM235.73,49l-3.56,15.81,9.87-.91-6.31-14.9ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM235.73,49l-3.56,15.81,9.87-.91-6.31-14.9ZM350.5,89.02l8.43,5.17,3.88-15.72-12.31,10.54ZM410.04,114.52l-6.37-6.8-7.08,6.62,6.37,6.8c1.84,1.96,4.74,1.99,6.74.11,2.02-1.89,2.17-4.77.33-6.73ZM423.35,163.77l4.48,8.84,11.54-11.37-16.02,2.53ZM423.35,163.77l4.48,8.84,11.54-11.37-16.02,2.53ZM410.04,114.52l-6.37-6.8-7.08,6.62,6.37,6.8c1.84,1.96,4.74,1.99,6.74.11,2.02-1.89,2.17-4.77.33-6.73ZM350.5,89.02l8.43,5.17,3.88-15.72-12.31,10.54ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM235.73,49l-3.56,15.81,9.87-.91-6.31-14.9ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM235.73,49l-3.56,15.81,9.87-.91-6.31-14.9ZM350.5,89.02l8.43,5.17,3.88-15.72-12.31,10.54ZM410.04,114.52l-6.37-6.8-7.08,6.62,6.37,6.8c1.84,1.96,4.74,1.99,6.74.11,2.02-1.89,2.17-4.77.33-6.73ZM410.04,114.52l-6.37-6.8-7.08,6.62,6.37,6.8c1.84,1.96,4.74,1.99,6.74.11,2.02-1.89,2.17-4.77.33-6.73ZM350.5,89.02l8.43,5.17,3.88-15.72-12.31,10.54ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM235.73,49l-3.56,15.81,9.87-.91-6.31-14.9ZM235.73,49l-3.56,15.81,9.87-.91-6.31-14.9ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM235.73,49l-3.56,15.81,9.87-.91-6.31-14.9ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85Z"/><path fill="currentColor" d="M31.38,199.24l158.53,2.05s11.98.99,18.79-6.6c6.81-7.59,34.03-18.32,50.17-18.32,14.49,0,40.14,6.89,42.93,21.9,2.79,15.01,3.18,13.32,6.2,17.54,3.02,4.23,3.75,8.29,6.02,18.76,2.27,10.47,14.57,18.76,13.7,24.17-.87,5.41-8.81,8.12-10.38,11.43-1.57,3.32-.44,7.94-2.35,10.47-1.92,2.53-.26,5.67-2.62,8.29-2.35,2.62-3.01,7.19-1.57,9.09,1.28,1.69.09,5.45-.78,6.81-2.13,3.29-3.71,6.71-9.77,6.71-10.65,0-16.75-6.98-24.96-3.84-8.2,3.14-23.3,19.55-24,32.81-.7,13.26,3.23,18.06,2.53,21.47-.7,3.4-19.11-6.37-25.13-24-6.02-17.63-23.56-34.82-41.8-37.52,0,0,6.72-7.24,11.96-9.6,5.23-2.36,9.95-7.16,6.63-18.59-3.32-11.43-5.06-14.31-6.28-22.08-1.22-7.77-1.22-17.28-8.03-14.83-5.5,1.97-42.15,8.95-56.08,11.56-2.72.51-5.41,1.18-8.08,1.93-4.46,1.26-13.68,2.77-22.32-2.58-11.96-7.42-10.39-6.89-10.39-6.89,0,0-11.17.87-19.02-2.97-7.85-3.84-12.39-10.38-12.39-10.38,0,0-25.61,2.7-33.84-23.66-.49-1.56.7-3.13,2.33-3.11h0Z"/></svg>
+      <span class="logo-text">
+        <span class="name">McNamara Law</span>
+        <span class="sub">Immigration · PLLC</span>
+      </span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="e2-visas.html">E-2 Visa</a></li>
+        <li><a href="#about">The Firm</a></li>
+        <li><a href="#knowledge">Know the Basics</a></li>
+        <li><a href="#insights">Insights</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="https://mcnamaralaw.cliogrow.com/book" target="_blank" rel="noopener">Book a Consult</a>
+      <button class="menu-btn" aria-label="Open menu" onclick="document.querySelector('.m-menu').classList.toggle('show')">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <nav class="m-menu" aria-label="Mobile">
+    <a href="#services">Services</a>
+    <a href="e2-visas.html">E-2 Visa</a>
+    <a href="#about">The Firm</a>
+    <a href="#knowledge">Know the Basics</a>
+    <a href="#insights">Insights</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- ======= HERO ======= -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="code-tag">Orlando, Florida — U.S. Immigration Law</span>
+      <h1>Immigration law, explained in <em>plain language</em> — and handled with care.</h1>
+      <p class="lede">The U.S. immigration system runs on forms, deadlines, and fine print most people never see explained. McNamara Law helps families, workers, and future citizens across Central Florida understand the process — and guides them through it, start to finish.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://mcnamaralaw.cliogrow.com/book" target="_blank" rel="noopener">Book a Consultation <span class="arrow">→</span></a>
+        <a class="btn btn-ghost" href="#knowledge">Learn the Basics</a>
+      </div>
+      <p class="hero-note">Led by <b>Matthew McNamara, Esq.</b> — serving Orlando &amp; Winter Park</p>
+    </div>
+    <div class="stamp-wrap" aria-hidden="true">
+      <div class="stamp">
+        <svg viewBox="0 0 300 300">
+          <defs>
+            <path id="circlePath" d="M 150,150 m -120,0 a 120,120 0 1,1 240,0 a 120,120 0 1,1 -240,0"/>
+          </defs>
+          <text font-family="'Spline Sans Mono', monospace" font-size="13.5" letter-spacing="5.5" fill="#9D2235">
+            <textPath href="#circlePath">MCNAMARA LAW PLLC · ORLANDO FLORIDA · IMMIGRATION ·</textPath>
+          </text>
+        </svg>
+        <div class="inner">
+          <span class="est">★ ★ ★</span>
+          <span class="word">Your path,<br>made clear.</span>
+          <span class="est">PLLC</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= RIBBON ======= -->
+<div class="ribbon">
+  <div class="wrap">
+    <span><b>Full-service representation</b> — petitions to court</span>
+    <span><b>Central Florida roots</b> — Orlando &amp; Winter Park</span>
+    <span><b>Plain-language counsel</b> — no jargon, no guesswork</span>
+    <span><b>Tailored strategy</b> — every case, every client</span>
+  </div>
+</div>
+
+<!-- ======= SERVICES ======= -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="code-tag">Immigration Services</span>
+      <h2>Every immigration journey starts with a form. We handle what comes after.</h2>
+      <p>Each service below is labeled with the government form it typically begins with — because knowing which form applies to you is the first step in understanding your own case.</p>
+    </div>
+    <div class="svc-grid reveal">
+      <article class="svc">
+        <span class="form-no">Form I-130</span>
+        <h3>Family-Based Immigration</h3>
+        <p>U.S. citizens and permanent residents can petition for spouses, children, parents, and siblings. We prepare petitions, navigate consular processing, and keep families on the fastest lawful path to reunification.</p>
+        <a class="more" href="#contact">Discuss your family's case <span class="arrow">→</span></a>
+      </article>
+      <article class="svc">
+        <span class="form-no">Form I-485</span>
+        <h3>Green Cards &amp; Adjustment of Status</h3>
+        <p>Becoming a lawful permanent resident from inside the U.S. means proving eligibility, admissibility, and timing. We build complete, well-documented applications designed to avoid delays and requests for evidence.</p>
+        <a class="more" href="#contact">Start your green card <span class="arrow">→</span></a>
+      </article>
+      <article class="svc">
+        <span class="form-no">Form N-400</span>
+        <h3>Citizenship &amp; Naturalization</h3>
+        <p>From the eligibility review to the civics interview and oath ceremony, we prepare clients for every stage of naturalization — including cases complicated by travel history, taxes, or old records.</p>
+        <a class="more" href="#contact">Become a citizen <span class="arrow">→</span></a>
+      </article>
+      <article class="svc">
+        <span class="form-no">Form I-140</span>
+        <h3>Employment-Based Immigration</h3>
+        <p>Workers, professionals, and the employers who sponsor them rely on the EB visa categories. We advise on eligibility, labor certification, and strategy for both companies and individual applicants.</p>
+        <a class="more" href="#contact">Explore work visas <span class="arrow">→</span></a>
+      </article>
+      <article class="svc">
+        <span class="form-no">Form I-589</span>
+        <h3>Humanitarian Relief</h3>
+        <p>Asylum, Temporary Protected Status, VAWA, and U visas exist to protect people fleeing persecution, violence, or abuse. We handle these sensitive cases with discretion, urgency, and compassion.</p>
+        <a class="more" href="#contact">Seek protection <span class="arrow">→</span></a>
+      </article>
+      <article class="svc">
+        <span class="form-no">EOIR / Immigration Court</span>
+        <h3>Removal &amp; Deportation Defense</h3>
+        <p>A notice to appear is not the end of the road. We represent clients in immigration court, pursuing every available defense — cancellation of removal, adjustment, asylum, and appeals.</p>
+        <a class="more" href="#contact">Defend your case <span class="arrow">→</span></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======= ABOUT ======= -->
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="about-copy reveal">
+      <span class="code-tag">The Firm</span>
+      <h2>A Central Florida firm built on trust — and built for results.</h2>
+      <p>At McNamara Law, we are dedicated to achieving the best outcomes for our clients. Established in 2024, our firm has grown by delivering attentive legal service and consistently securing favorable results for the people we represent.</p>
+      <p>Immigration is personal. Behind every petition is a family waiting to be reunited, a career waiting to begin, or a future waiting to be secured. That's why every case at our firm starts the same way: we listen first, explain your options in plain language, and tailor a strategy designed for your specific situation — never a one-size-fits-all approach.</p>
+      <p>From our offices in Winter Park, we serve clients throughout Orlando and Central Florida with the care, candor, and determination they deserve.</p>
+    </div>
+    <div class="attorney-card reveal">
+      <span class="code-tag">Lead Attorney</span>
+      <h3>Matthew McNamara, Esq.</h3>
+      <p class="role">Founder &amp; Attorney</p>
+      <p>Matthew McNamara is a distinguished lawyer with deep roots in Central Florida, dedicated to serving his community with exceptional legal service. Blending cutting-edge expertise with professional integrity, Matthew delivers tailored solutions for individuals and families — and his unwavering commitment to justice makes him a trusted advisor and advocate throughout the region.</p>
+      <div class="bar">
+        <div><span class="k">Based In</span><span class="v">Winter Park, FL</span></div>
+        <div><span class="k">Firm Founded</span><span class="v">2024</span></div>
+        <div><span class="k">Focus</span><span class="v">U.S. Immigration</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= PRINCIPLES ======= -->
+<section class="principles">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="code-tag">Why McNamara Law</span>
+      <h2>How we work</h2>
+    </div>
+    <div class="prin-grid reveal">
+      <div class="prin">
+        <div class="glyph">§1</div>
+        <h3>We explain before we file</h3>
+        <p>You'll never sign something you don't understand. Every form, fee, and timeline is walked through in plain language before your case moves forward.</p>
+      </div>
+      <div class="prin">
+        <div class="glyph">§2</div>
+        <h3>One strategy per client</h3>
+        <p>Immigration law offers more than one path in most situations. We assess your full picture — family, work, history — and choose the route with the strongest footing.</p>
+      </div>
+      <div class="prin">
+        <div class="glyph">§3</div>
+        <h3>We answer the phone</h3>
+        <p>Months of silence from the government is normal. Silence from your lawyer shouldn't be. You'll know the status of your case, and what comes next, at every stage.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= KNOWLEDGE / FAQ ======= -->
+<section id="knowledge">
+  <div class="wrap know-grid">
+    <div class="reveal">
+      <div class="sec-head">
+        <span class="code-tag">Know the Basics</span>
+        <h2>Questions everyone has — answered honestly.</h2>
+        <p>Most people only learn how the immigration system works once they're inside it. These are the fundamentals we believe everyone should understand, whether or not they ever hire a lawyer.</p>
+      </div>
+      <a class="btn btn-ghost" href="#contact">Ask Us Anything</a>
+    </div>
+    <div class="faq reveal">
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">What's the difference between a visa, a green card, and citizenship?<span class="sign">+</span></button>
+        <div class="faq-a"><p>A <strong>visa</strong> is permission to enter the U.S. for a specific purpose and time — work, study, or visiting. A <strong>green card</strong> (lawful permanent residence) lets you live and work in the U.S. indefinitely, but it can be lost through abandonment or certain criminal issues. <strong>Citizenship</strong> is permanent: it brings the right to vote, a U.S. passport, and protection from deportation. Many journeys move through all three stages over several years.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">How long does it take to become a U.S. citizen?<span class="sign">+</span></button>
+        <div class="faq-a"><p>Most green card holders can apply for naturalization after <strong>5 years</strong> of permanent residence — or <strong>3 years</strong> if married to and living with a U.S. citizen. After filing Form N-400, processing typically takes several months to over a year depending on your local field office. The timeline before that — getting the green card itself — varies enormously by category and country of origin.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Can I work while my application is pending?<span class="sign">+</span></button>
+        <div class="faq-a"><p>Often, yes — but not automatically. Many applicants (including most adjustment-of-status and asylum applicants) can request an <strong>Employment Authorization Document (EAD)</strong> using Form I-765 while their case is pending. Working without authorization, even briefly, can create serious problems for a future application, so it's worth confirming your status before accepting any job.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">What is a Request for Evidence (RFE), and should I panic?<span class="sign">+</span></button>
+        <div class="faq-a"><p>No — an RFE means the government wants more documentation before deciding your case, not that it's being denied. It comes with a strict deadline, and your response is often the single most important filing in the entire case. A complete, well-organized response can turn a borderline case into an approval; a rushed one can sink a strong case.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">What happens if my application is denied?<span class="sign">+</span></button>
+        <div class="faq-a"><p>A denial is rarely the end. Depending on the case, you may be able to file a <strong>motion to reopen or reconsider</strong>, appeal the decision, or simply refile with stronger evidence. What matters most is understanding <em>why</em> it was denied — and whether the denial affects your current status. That's a conversation to have with an attorney quickly, since deadlines run from the decision date.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Do I really need an immigration lawyer?<span class="sign">+</span></button>
+        <div class="faq-a"><p>Not for everything — and we'll tell you when you don't. Some straightforward renewals can be handled on your own. But immigration filings create a permanent record, and small mistakes (a missed deadline, an inconsistent answer, an unnecessary admission) can follow you for years. If your case involves any prior denials, arrests, status gaps, or court proceedings, professional guidance pays for itself.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= INSIGHTS ======= -->
+<section class="insights" id="insights">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="code-tag">Insights &amp; Resources</span>
+      <h2>Insight the public rarely gets</h2>
+      <p>Short, practical reading on how the system actually works — written for people, not lawyers.</p>
+    </div>
+    <div class="ins-grid reveal">
+      <a class="ins-card" href="#contact">
+        <div class="band"></div>
+        <div class="pad">
+          <span class="cat">Fundamentals</span>
+          <h3>How to Read the Visa Bulletin (Without Losing Your Mind)</h3>
+          <p>The monthly chart that decides when millions of people can file — decoded in five minutes, with examples for family and employment categories.</p>
+          <span class="read">Read the guide <span class="arrow">→</span></span>
+        </div>
+      </a>
+      <a class="ins-card" href="#contact">
+        <div class="band"></div>
+        <div class="pad">
+          <span class="cat">Interviews</span>
+          <h3>What to Expect at Your USCIS Interview</h3>
+          <p>What officers actually ask, what documents to bring, and the small preparation steps that make the biggest difference on interview day.</p>
+          <span class="read">Read the guide <span class="arrow">→</span></span>
+        </div>
+      </a>
+      <a class="ins-card" href="#contact">
+        <div class="band"></div>
+        <div class="pad">
+          <span class="cat">Know Your Rights</span>
+          <h3>Your Rights During an Encounter with Immigration Officers</h3>
+          <p>Everyone in the U.S. — regardless of status — has constitutional rights. Here's what you are and aren't required to do, at home, at work, and in public.</p>
+          <span class="read">Read the guide <span class="arrow">→</span></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ======= CTA ======= -->
+<section class="cta">
+  <div class="wrap">
+    <h2>When facing legal troubles — we're your solution.</h2>
+    <p>We've been breaking down legal barriers for our clients, and we're ready to do it for you today. The first step is a conversation.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="https://mcnamaralaw.cliogrow.com/book" target="_blank" rel="noopener">Book a Consult <span class="arrow">→</span></a>
+      <a class="btn btn-light" href="#contact">Send a Message</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======= CONTACT ======= -->
+<section id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <span class="code-tag">Get in Touch</span>
+      <h2 style="font-family:var(--display);font-weight:400;font-size:clamp(30px,3.4vw,42px);line-height:1.14;margin:20px 0 18px;letter-spacing:-.01em;">Tell us where you are. We'll map where you can go.</h2>
+      <p style="color:var(--ink-soft);">Reach out by phone, email, or the form — or book a consultation directly. Every inquiry is read by our team.</p>
+      <div class="c-info">
+        <div class="c-row">
+          <span class="k">Phone</span>
+          <span class="v"><a href="tel:4078321307">(407) 832-1307</a></span>
+        </div>
+        <div class="c-row">
+          <span class="k">Email</span>
+          <span class="v"><a href="mailto:matt@mclawfl.com">matt@mclawfl.com</a></span>
+        </div>
+        <div class="c-row">
+          <span class="k">Office</span>
+          <span class="v"><a href="http://maps.google.com/?q=3769 Seminole Dr Orlando, FL 32812" target="_blank" rel="noopener">3769 Seminole Dr<br>Orlando, FL 32812</a><small>Serving Orlando, Winter Park &amp; Central Florida</small></span>
+        </div>
+        <div class="c-row">
+          <span class="k">Consults</span>
+          <span class="v"><a href="https://mcnamaralaw.cliogrow.com/book" target="_blank" rel="noopener">Book online — mcnamaralaw.cliogrow.com</a></span>
+        </div>
+      </div>
+    </div>
+    <form class="intake reveal" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Message received — we\'ll be in touch.';">
+      <h3>General Inquiry</h3>
+      <span class="req">ALL FIELDS REQUIRED · CONFIDENTIAL</span>
+      <div class="f-row">
+        <div class="f-field">
+          <label for="fn">First Name</label>
+          <input id="fn" type="text" required autocomplete="given-name">
+        </div>
+        <div class="f-field">
+          <label for="ln">Last Name</label>
+          <input id="ln" type="text" required autocomplete="family-name">
+        </div>
+      </div>
+      <div class="f-row">
+        <div class="f-field">
+          <label for="em">Email</label>
+          <input id="em" type="email" required autocomplete="email">
+        </div>
+        <div class="f-field">
+          <label for="ph">Phone</label>
+          <input id="ph" type="tel" required autocomplete="tel">
+        </div>
+      </div>
+      <div class="f-field">
+        <label for="topic">What can we help with?</label>
+        <select id="topic" required>
+          <option value="" disabled selected>Select a topic</option>
+          <option>Family-Based Immigration</option>
+          <option>Green Card / Adjustment of Status</option>
+          <option>Citizenship &amp; Naturalization</option>
+          <option>Employment-Based Immigration</option>
+          <option>Humanitarian Relief (Asylum, TPS, VAWA, U Visa)</option>
+          <option>Removal / Deportation Defense</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="f-field">
+        <label for="msg">Message</label>
+        <textarea id="msg" required placeholder="Briefly describe your situation. Please don't include confidential details until an attorney-client relationship is established."></textarea>
+      </div>
+      <button class="btn btn-primary" type="submit">Send Message</button>
+      <p class="privacy">Submitting this form does not create an attorney-client relationship.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ======= FOOTER ======= -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <svg class="logo-mark logo-mark-foot" viewBox="0 0 512.4 512.4" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path fill="#FFFFFF" d="M240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM235.73,49l-3.56,15.81,9.87-.91-6.31-14.9ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM235.73,49l-3.56,15.81,9.87-.91-6.31-14.9ZM235.73,49l-3.56,15.81,9.87-.91-6.31-14.9ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM350.5,89.02l8.43,5.17,3.88-15.72-12.31,10.54ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM350.5,89.02l8.43,5.17,3.88-15.72-12.31,10.54ZM235.73,49l-3.56,15.81,9.87-.91-6.31-14.9ZM235.73,49l-3.56,15.81,9.87-.91-6.31-14.9ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM350.5,89.02l8.43,5.17,3.88-15.72-12.31,10.54ZM410.04,114.52l-6.37-6.8-7.08,6.62,6.37,6.8c1.84,1.96,4.74,1.99,6.74.11,2.02-1.89,2.17-4.77.33-6.73ZM423.35,163.77l4.48,8.84,11.54-11.37-16.02,2.53ZM423.35,163.77l4.48,8.84,11.54-11.37-16.02,2.53ZM410.04,114.52l-6.37-6.8-7.08,6.62,6.37,6.8c1.84,1.96,4.74,1.99,6.74.11,2.02-1.89,2.17-4.77.33-6.73ZM350.5,89.02l8.43,5.17,3.88-15.72-12.31,10.54ZM235.73,49l-3.56,15.81,9.87-.91-6.31-14.9ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM235.73,49l-3.56,15.81,9.87-.91-6.31-14.9ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM350.5,89.02l8.43,5.17,3.88-15.72-12.31,10.54ZM410.04,114.52l-6.37-6.8-7.08,6.62,6.37,6.8c1.84,1.96,4.74,1.99,6.74.11,2.02-1.89,2.17-4.77.33-6.73ZM423.35,163.77l4.48,8.84,11.54-11.37-16.02,2.53ZM423.35,163.77l4.48,8.84,11.54-11.37-16.02,2.53ZM410.04,114.52l-6.37-6.8-7.08,6.62,6.37,6.8c1.84,1.96,4.74,1.99,6.74.11,2.02-1.89,2.17-4.77.33-6.73ZM350.5,89.02l8.43,5.17,3.88-15.72-12.31,10.54ZM235.73,49l-3.56,15.81,9.87-.91-6.31-14.9ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM235.73,49l-3.56,15.81,9.87-.91-6.31-14.9ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM350.5,89.02l8.43,5.17,3.88-15.72-12.31,10.54ZM410.04,114.52l-6.37-6.8-7.08,6.62,6.37,6.8c1.84,1.96,4.74,1.99,6.74.11,2.02-1.89,2.17-4.77.33-6.73ZM423.35,163.77l4.48,8.84,11.54-11.37-16.02,2.53ZM423.35,163.77l4.48,8.84,11.54-11.37-16.02,2.53ZM403.68,107.71l-7.08,6.62,6.37,6.8c1.84,1.96,4.74,1.99,6.74.11,2.02-1.89,2.17-4.77.33-6.73l-6.37-6.8ZM358.93,94.19l3.88-15.72-12.31,10.54,8.43,5.17ZM232.17,64.81l9.87-.91-6.31-14.9-3.56,15.81ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM256.2,0C114.71,0,0,114.71,0,256.2s114.71,256.2,256.2,256.2,256.2-114.71,256.2-256.2S397.7,0,256.2,0ZM115.54,80.04c10.7-8.57,24.71-8.34,34.06.11l-11.8,9.46c-4.12-2.62-9.52-2.22-13.7,1.15-5.64,4.51-6.5,12.26-1.89,18.01,4.62,5.76,12.37,6.62,18,2.1,4.19-3.35,5.78-8.54,4.1-13.11l11.8-9.46c6.22,10.97,3.38,24.7-7.32,33.26-12.16,9.75-28.51,8.15-37.97-3.65-9.46-11.81-7.45-28.12,4.71-37.87ZM59.72,146.81l26.55,2.43-13.74-22.79,9.23-14.71,43.54,27.37-7.57,12.04-25.24-15.86,12.94,21.42-4.28,6.82-24.92-2.38,25.24,15.87-7.57,12.04-43.52-27.35,9.35-14.89ZM76.88,293.3l-10.64-5.58-10.64,5.58,2.04-11.84-8.6-8.39,11.12-.17,6.08-12.33,6.05,12.26,11.16.23-8.61,8.39,2.04,11.84ZM198.32,461.24l-29.82-13.95,21.78-46.57,12.88,6.03-16.1,34.41,16.94,7.93-5.69,12.14ZM247.59,470.05l-1.54-7.29-18.15-1.98-3.06,6.79-15.18-1.66,23.94-49.1,16.65,1.83,12.81,53.1-15.48-1.69ZM318.38,457.85l-17.05-24.45,1.76,29.73-13.46,4.65-33.11-42.93,14.86-5.14,18.57,26.61-1.96-32.34,12.11-4.19,18.57,26.61-1.95-32.34,14.5-5.02.59,54.19-13.44,4.65ZM256.2,385.35c-70.74,0-128.17-56.86-129.13-127.37-2.34.51-5.33.95-8.66.95-6.73,0-12.93-1.72-18.4-5.11-3.85-2.38-6.73-4.22-8.6-5.48-5.48-.02-13.37-.69-20.02-3.95-5.7-2.79-9.97-6.62-12.63-9.47-9.05-.47-30.22-4.39-38.18-29.91-1.07-3.41-.44-7.17,1.67-10.05,2.13-2.88,5.52-4.6,9.1-4.6l112.87,1.46c22.3-38.71,64.1-64.76,111.98-64.76,71.32,0,129.15,57.82,129.15,129.15s-57.82,129.15-129.15,129.15ZM412.76,187.51l5.27-5.25-8.25-16.28-7.36,1.13-5.82-11.46-.02.06-12.07-12.88,5.78-17.15-2.7-2.88-11.63,10.89-9.73-10.38.62-.57-12.93-7.94,1.73-7.24-15.57-9.55-5.67,4.83-13.02-8,.27-.21-13.12-3.03,6.73-29.04-16.01,19.23-7.84-1.81-5.91-24.32-6.73,29.02-13.06-3.02.15.32-15.51,1.42-2.96-6.83-18.16,1.67-1.66,7.26-14.63,1.34.18.47-13.25,5.2-25.43-18.25,9.62,24.48-13.24,5.2-18.81-47.85,13.25-5.2,25.43,18.25-9.62-24.47,13.24-5.2,18.3,46.52,13.44-51.99,16.7-1.52,22.4,47.97,11.36-49.06,17.14,3.97,6.4,25.87,17.05-20.44,16.91,3.92-11.39,49.13,41.43-33.17,14.29,8.76-11,52.81,36.42-34.11,16.29,17.39c7.39,7.89,7.35,19.17-.21,26.25-4.95,4.63-11.48,5.75-17.41,3.65l-5.14,17.83,52.44-6.56,7.59,14.94-37.49,39.75-7.04-13.89ZM443.41,287.71l-10.64,5.58,2.04-11.84-8.6-8.39,11.12-.17,6.08-12.33,6.05,12.26,11.16.23-8.61,8.39,2.04,11.84-10.64-5.58ZM427.83,172.61l11.54-11.37-16.02,2.53,4.48,8.84ZM409.71,121.24c2.02-1.89,2.17-4.77.33-6.73l-6.37-6.8-7.08,6.62,6.37,6.8c1.84,1.96,4.74,1.99,6.74.11ZM358.93,94.19l3.88-15.72-12.31,10.54,8.43,5.17ZM233.47,448.21l9.85,1.07-3.21-15.85-6.64,14.78ZM232.17,64.81l9.87-.91-6.31-14.9-3.56,15.81ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM235.73,49l-3.56,15.81,9.87-.91-6.31-14.9ZM350.5,89.02l8.43,5.17,3.88-15.72-12.31,10.54ZM410.04,114.52l-6.37-6.8-7.08,6.62,6.37,6.8c1.84,1.96,4.74,1.99,6.74.11,2.02-1.89,2.17-4.77.33-6.73ZM423.35,163.77l4.48,8.84,11.54-11.37-16.02,2.53ZM423.35,163.77l4.48,8.84,11.54-11.37-16.02,2.53ZM410.04,114.52l-6.37-6.8-7.08,6.62,6.37,6.8c1.84,1.96,4.74,1.99,6.74.11,2.02-1.89,2.17-4.77.33-6.73ZM350.5,89.02l8.43,5.17,3.88-15.72-12.31,10.54ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM235.73,49l-3.56,15.81,9.87-.91-6.31-14.9ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM235.73,49l-3.56,15.81,9.87-.91-6.31-14.9ZM350.5,89.02l8.43,5.17,3.88-15.72-12.31,10.54ZM410.04,114.52l-6.37-6.8-7.08,6.62,6.37,6.8c1.84,1.96,4.74,1.99,6.74.11,2.02-1.89,2.17-4.77.33-6.73ZM423.35,163.77l4.48,8.84,11.54-11.37-16.02,2.53ZM423.35,163.77l4.48,8.84,11.54-11.37-16.02,2.53ZM410.04,114.52l-6.37-6.8-7.08,6.62,6.37,6.8c1.84,1.96,4.74,1.99,6.74.11,2.02-1.89,2.17-4.77.33-6.73ZM350.5,89.02l8.43,5.17,3.88-15.72-12.31,10.54ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM235.73,49l-3.56,15.81,9.87-.91-6.31-14.9ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM235.73,49l-3.56,15.81,9.87-.91-6.31-14.9ZM350.5,89.02l8.43,5.17,3.88-15.72-12.31,10.54ZM410.04,114.52l-6.37-6.8-7.08,6.62,6.37,6.8c1.84,1.96,4.74,1.99,6.74.11,2.02-1.89,2.17-4.77.33-6.73ZM410.04,114.52l-6.37-6.8-7.08,6.62,6.37,6.8c1.84,1.96,4.74,1.99,6.74.11,2.02-1.89,2.17-4.77.33-6.73ZM350.5,89.02l8.43,5.17,3.88-15.72-12.31,10.54ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM235.73,49l-3.56,15.81,9.87-.91-6.31-14.9ZM235.73,49l-3.56,15.81,9.87-.91-6.31-14.9ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM235.73,49l-3.56,15.81,9.87-.91-6.31-14.9ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85ZM240.1,433.43l-6.64,14.78,9.85,1.07-3.21-15.85Z"/><path fill="#FFFFFF" d="M31.38,199.24l158.53,2.05s11.98.99,18.79-6.6c6.81-7.59,34.03-18.32,50.17-18.32,14.49,0,40.14,6.89,42.93,21.9,2.79,15.01,3.18,13.32,6.2,17.54,3.02,4.23,3.75,8.29,6.02,18.76,2.27,10.47,14.57,18.76,13.7,24.17-.87,5.41-8.81,8.12-10.38,11.43-1.57,3.32-.44,7.94-2.35,10.47-1.92,2.53-.26,5.67-2.62,8.29-2.35,2.62-3.01,7.19-1.57,9.09,1.28,1.69.09,5.45-.78,6.81-2.13,3.29-3.71,6.71-9.77,6.71-10.65,0-16.75-6.98-24.96-3.84-8.2,3.14-23.3,19.55-24,32.81-.7,13.26,3.23,18.06,2.53,21.47-.7,3.4-19.11-6.37-25.13-24-6.02-17.63-23.56-34.82-41.8-37.52,0,0,6.72-7.24,11.96-9.6,5.23-2.36,9.95-7.16,6.63-18.59-3.32-11.43-5.06-14.31-6.28-22.08-1.22-7.77-1.22-17.28-8.03-14.83-5.5,1.97-42.15,8.95-56.08,11.56-2.72.51-5.41,1.18-8.08,1.93-4.46,1.26-13.68,2.77-22.32-2.58-11.96-7.42-10.39-6.89-10.39-6.89,0,0-11.17.87-19.02-2.97-7.85-3.84-12.39-10.38-12.39-10.38,0,0-25.61,2.7-33.84-23.66-.49-1.56.7-3.13,2.33-3.11h0Z"/></svg>
+        <div class="name">McNamara Law</div>
+        <div class="sub">Immigration · PLLC</div>
+        <p>A Central Florida law firm helping families, workers, and future citizens navigate U.S. immigration with clarity and care.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Family-Based Immigration</a></li>
+          <li><a href="#services">Green Cards</a></li>
+          <li><a href="#services">Citizenship</a></li>
+          <li><a href="#services">Employment Visas</a></li>
+          <li><a href="#services">Humanitarian Relief</a></li>
+          <li><a href="#services">Removal Defense</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Firm</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#knowledge">Know the Basics</a></li>
+          <li><a href="#insights">Insights</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="https://mclawfl.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Clients</h4>
+        <ul>
+          <li><a href="https://mcnamaralaw.cliogrow.com/book" target="_blank" rel="noopener">Book a Consult</a></li>
+          <li><a href="https://clients.clio.com/" target="_blank" rel="noopener">Client Login</a></li>
+          <li><a href="tel:4078321307">(407) 832-1307</a></li>
+          <li><a href="mailto:matt@mclawfl.com">matt@mclawfl.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="disclaimer">
+      The information you obtain at this site is not, nor is it intended to be, legal advice. You should consult an attorney for advice regarding your individual situation. We invite you to contact us and welcome your calls, letters and electronic mail. Contacting us does not create an attorney-client relationship. Please do not send any confidential information to us until such time as an attorney-client relationship has been established.
+    </div>
+    <div class="foot-base">
+      <span>©2026 McNamara Law, PLLC · All rights reserved</span>
+      <span>3769 Seminole Dr, Orlando, FL 32812</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+
+  // Cursor glow — soft cobalt trail that follows the pointer
+  (function(){
+    const glow = document.querySelector('.cursor-glow');
+    if (!glow) return;
+    if (window.matchMedia('(pointer: coarse)').matches) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    let mx = 0, my = 0, gx = 0, gy = 0, raf = null, visible = false;
+    const HALF = 120;
+
+    function tick(){
+      gx += (mx - gx) * 0.18;
+      gy += (my - gy) * 0.18;
+      glow.style.transform = `translate3d(${gx - HALF}px, ${gy - HALF}px, 0)`;
+      if (Math.abs(mx - gx) > 0.5 || Math.abs(my - gy) > 0.5) {
+        raf = requestAnimationFrame(tick);
+      } else {
+        raf = null;
+      }
+    }
+
+    window.addEventListener('mousemove', (e) => {
+      mx = e.clientX;
+      my = e.clientY;
+      if (!visible) {
+        gx = mx; gy = my;
+        glow.classList.add('is-visible');
+        visible = true;
+      }
+      if (!raf) raf = requestAnimationFrame(tick);
+    }, {passive: true});
+
+    document.addEventListener('mouseleave', () => {
+      glow.classList.remove('is-visible');
+      visible = false;
+    });
+  })();
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const ans = item.querySelector('.faq-a');
+      const open = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(o => {
+        o.classList.remove('open');
+        o.querySelector('.faq-a').style.maxHeight = null;
+        o.querySelector('.faq-q').setAttribute('aria-expanded','false');
+      });
+      if(!open){
+        item.classList.add('open');
+        ans.style.maxHeight = ans.scrollHeight + 'px';
+        btn.setAttribute('aria-expanded','true');
+      }
+    });
+  });
+
+  // Scroll reveal
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Close mobile menu on link tap
+  document.querySelectorAll('.m-menu a').forEach(a =>
+    a.addEventListener('click', () => document.querySelector('.m-menu').classList.remove('show'))
+  );
+</script>
+</body>
+</html>
