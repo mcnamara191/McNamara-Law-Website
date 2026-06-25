@@ -23,6 +23,7 @@
     --body:'Public Sans', -apple-system, sans-serif;
     --mono:'Spline Sans Mono', 'Courier New', monospace;
     --maxw:1180px;
+    --ease:cubic-bezier(0.22, 1, 0.36, 1);
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -58,28 +59,17 @@
     font-family:var(--body);font-weight:600;font-size:14.5px;
     letter-spacing:.01em;text-decoration:none;
     padding:14px 28px;border-radius:3px;
-    transition:all .22s ease;cursor:pointer;border:1px solid transparent;
+    transition:all .22s var(--ease);cursor:pointer;border:1px solid transparent;
   }
   .btn-primary{background:var(--cobalt);color:#fff;}
-  .btn-primary:hover{background:var(--cobalt-deep);transform:translateY(-1px);}
+  .btn-primary:hover{background:var(--cobalt-deep);transform:translateY(-2px);}
   .btn-ghost{border-color:var(--ink);color:var(--ink);background:transparent;}
   .btn-ghost:hover{background:var(--ink);color:var(--paper);}
   .btn-light{border-color:rgba(255,255,255,.45);color:#fff;background:transparent;}
   .btn-light:hover{background:#fff;color:var(--ink);}
-  .arrow{font-family:var(--mono);transition:transform .22s ease;}
+  .arrow{font-family:var(--mono);transition:transform .3s var(--ease);}
   .btn:hover .arrow{transform:translateX(4px);}
-
-  /* ---------- top bar ---------- */
-  .topbar{
-    background:var(--ink);color:#C8D0DF;
-    font-size:12.5px;font-family:var(--mono);letter-spacing:.04em;
-  }
-  .topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:38px;}
-  .topbar a{color:#C8D0DF;text-decoration:none;transition:color .2s;}
-  .topbar a:hover{color:#fff;}
-  .topbar .tb-links{display:flex;gap:22px;}
-
-  /* ---------- nav ---------- */
+/* ---------- nav ---------- */
   header.site{
     position:sticky;top:0;z-index:100;
     background:rgba(251,251,249,.92);
@@ -95,11 +85,11 @@
   .nav-links{display:flex;gap:34px;list-style:none;}
   .nav-links a{
     text-decoration:none;font-size:14px;font-weight:500;color:var(--ink-soft);
-    transition:color .2s;position:relative;padding:4px 0;
+    transition:color .25s var(--ease);position:relative;padding:4px 0;
   }
   .nav-links a::after{
     content:"";position:absolute;left:0;bottom:0;width:0;height:1.5px;
-    background:var(--cobalt);transition:width .25s ease;
+    background:var(--cobalt);transition:width .35s var(--ease);
   }
   .nav-links a:hover{color:var(--ink);}
   .nav-links a:hover::after{width:100%;}
@@ -179,7 +169,7 @@
   .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
   .svc{
     background:var(--surface);padding:38px 32px 42px;
-    position:relative;transition:background .25s ease;
+    position:relative;transition:background .35s var(--ease);
     display:flex;flex-direction:column;
   }
   .svc:hover{background:var(--tint);}
@@ -245,16 +235,16 @@
     display:flex;justify-content:space-between;align-items:center;gap:24px;
     padding:24px 4px;text-align:left;
     font-family:var(--display);font-size:19px;font-weight:500;color:var(--ink);
-    transition:color .2s;
+    transition:color .25s var(--ease);
   }
   .faq-q:hover{color:var(--cobalt);}
   .faq-q .sign{
     font-family:var(--mono);font-size:18px;color:var(--cobalt);
-    transition:transform .3s ease;flex-shrink:0;
+    transition:transform .4s var(--ease);flex-shrink:0;
   }
   .faq-item.open .faq-q .sign{transform:rotate(45deg);}
   .faq-a{
-    max-height:0;overflow:hidden;transition:max-height .35s ease;
+    max-height:0;overflow:hidden;transition:max-height .5s var(--ease);
   }
   .faq-a p{padding:0 4px 26px;color:var(--ink-soft);font-size:15px;max-width:640px;}
 
@@ -264,7 +254,7 @@
   .ins-card{
     border:1px solid var(--line);border-radius:4px;overflow:hidden;
     text-decoration:none;display:flex;flex-direction:column;
-    transition:transform .25s ease, box-shadow .25s ease;background:var(--paper);
+    transition:transform .4s var(--ease), box-shadow .4s var(--ease);background:var(--paper);
   }
   .ins-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px -22px rgba(20,31,51,.28);}
   .ins-card .band{
@@ -301,7 +291,7 @@
   .c-row{display:flex;gap:24px;padding:22px 0;border-bottom:1px solid var(--line);}
   .c-row .k{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--cobalt);width:90px;flex-shrink:0;padding-top:3px;}
   .c-row .v{font-size:15.5px;}
-  .c-row .v a{text-decoration:none;color:var(--ink);transition:color .2s;}
+  .c-row .v a{text-decoration:none;color:var(--ink);transition:color .25s var(--ease);}
   .c-row .v a:hover{color:var(--cobalt);}
   .c-row .v small{display:block;color:var(--ink-soft);font-size:13px;margin-top:2px;}
   form.intake{
@@ -317,7 +307,7 @@
   .f-field input,.f-field select,.f-field textarea{
     font-family:var(--body);font-size:15px;color:var(--ink);
     padding:12px 14px;border:1px solid var(--line);border-radius:3px;
-    background:var(--paper);transition:border-color .2s, box-shadow .2s;width:100%;
+    background:var(--paper);transition:border-color .25s var(--ease), box-shadow .25s var(--ease);width:100%;
   }
   .f-field input:focus,.f-field select:focus,.f-field textarea:focus{
     outline:none;border-color:var(--cobalt);box-shadow:0 0 0 3px rgba(31,79,216,.12);
@@ -335,7 +325,7 @@
   }
   .foot-grid ul{list-style:none;}
   .foot-grid li{margin-bottom:11px;}
-  .foot-grid a{color:#C8D0DF;text-decoration:none;font-size:14px;transition:color .2s;}
+  .foot-grid a{color:#C8D0DF;text-decoration:none;font-size:14px;transition:color .25s var(--ease);}
   .foot-grid a:hover{color:#fff;}
   .foot-brand .logo-mark-foot{width:48px;height:48px;display:block;margin-bottom:18px;}
   .foot-brand .name{font-family:var(--display);font-size:26px;color:#fff;font-weight:400;}
@@ -354,7 +344,7 @@
   .foot-base a:hover{color:#fff;}
 
   /* ---------- reveal ---------- */
-  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .9s var(--ease), transform .9s var(--ease);}
   .reveal.in{opacity:1;transform:none;}
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto;}
@@ -382,7 +372,7 @@
     .svc-grid,.ins-grid,.prin-grid{grid-template-columns:1fr;}
     .f-row{grid-template-columns:1fr;}
     .topbar .tb-links{gap:14px;}
-    .topbar .tb-phone{display:none;}
+    
     .stamp{width:230px;height:230px;}
     .stamp .inner .word{font-size:24px;}
     form.intake{padding:30px 24px;}
@@ -400,19 +390,64 @@
     padding:13px 0;border-bottom:1px solid var(--line);
   }
   .m-menu a:last-child{border-bottom:none;}
+
+  /* ---------- cursor glow ---------- */
+  .cursor-glow{
+    position:fixed;top:0;left:0;
+    width:240px;height:240px;border-radius:50%;
+    background:radial-gradient(circle at center,
+      rgba(31,79,216,0.32) 0%,
+      rgba(31,79,216,0.14) 38%,
+      rgba(31,79,216,0) 70%);
+    pointer-events:none;
+    z-index:9999;
+    opacity:0;
+    transition:opacity .5s var(--ease);
+    will-change:transform, opacity;
+    transform:translate3d(-9999px, -9999px, 0);
+  }
+  .cursor-glow.is-visible{opacity:1;}
+  @media (pointer: coarse), (prefers-reduced-motion: reduce){
+    .cursor-glow{display:none;}
+  }
+
+  /* ---------- clio grow intake embed ---------- */
+  .intake-embed{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:38px 36px 28px;
+    display:flex;flex-direction:column;gap:20px;
+  }
+  .intake-embed-head h3{
+    font-family:var(--display);font-weight:500;font-size:24px;
+    margin:14px 0 8px;letter-spacing:-.005em;
+  }
+  .intake-embed-head p{
+    color:var(--ink-soft);font-size:14.5px;max-width:520px;
+  }
+  .intake-embed iframe{
+    width:100%;
+    min-height:780px;
+    border:0;
+    display:block;
+    background:var(--paper);
+    border-radius:3px;
+  }
+  .intake-embed .privacy{
+    font-size:12px;color:var(--ink-soft);
+    text-align:center;margin:0;
+  }
+  @media (max-width: 720px){
+    .intake-embed{padding:26px 20px 22px;}
+    .intake-embed iframe{min-height:900px;}
+  }
 </style>
 </head>
 <body>
+<div class="cursor-glow" aria-hidden="true"></div>
 
-<!-- ======= TOP BAR ======= -->
-<div class="topbar">
-  <div class="wrap">
-    <span class="tb-phone"><a href="tel:4078321307">TEL (407) 832-1307</a></span>
-    <div class="tb-links">
-      <a href="https://clients.clio.com/" target="_blank" rel="noopener">Client Login</a>
-      <a href="https://mcnamaralaw.cliogrow.com/book" target="_blank" rel="noopener">Book a Consult →</a>
-    </div>
-  </div>
+
 </div>
 
 <!-- ======= NAV ======= -->
@@ -428,7 +463,7 @@
     <nav aria-label="Primary">
       <ul class="nav-links">
         <li><a href="#services">Services</a></li>
-        <li><a href="e2-visas.html">E-2 Visa</a></li>
+        <li><a href="/e2-visas">E-2 Visa</a></li>
         <li><a href="#about">The Firm</a></li>
         <li><a href="#knowledge">Know the Basics</a></li>
         <li><a href="#insights">Insights</a></li>
@@ -444,7 +479,7 @@
   </div>
   <nav class="m-menu" aria-label="Mobile">
     <a href="#services">Services</a>
-    <a href="e2-visas.html">E-2 Visa</a>
+    <a href="/e2-visas">E-2 Visa</a>
     <a href="#about">The Firm</a>
     <a href="#knowledge">Know the Basics</a>
     <a href="#insights">Insights</a>
@@ -713,49 +748,30 @@
         </div>
       </div>
     </div>
-    <form class="intake reveal" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Message received — we\'ll be in touch.';">
-      <h3>General Inquiry</h3>
-      <span class="req">ALL FIELDS REQUIRED · CONFIDENTIAL</span>
-      <div class="f-row">
-        <div class="f-field">
-          <label for="fn">First Name</label>
-          <input id="fn" type="text" required autocomplete="given-name">
-        </div>
-        <div class="f-field">
-          <label for="ln">Last Name</label>
-          <input id="ln" type="text" required autocomplete="family-name">
-        </div>
+    <!--
+      ============================================================
+      CLIO GROW INTAKE FORM EMBED
+      Replace the iframe src below with your actual intake form URL.
+      Get it from:  Clio Grow → Settings → Intake Forms → [Your Form] → Share / Embed
+      The URL will look like: https://mcnamaralaw.cliogrow.com/inquiry
+      or:                     https://mcnamaralaw.cliogrow.com/inquiry/your-slug
+      ============================================================
+    -->
+    <div class="intake-embed reveal" aria-label="Contact intake form">
+      <div class="intake-embed-head">
+        <span class="code-tag">Intake Form</span>
+        <h3>Tell us about your case</h3>
+        <p>The form below is connected directly to our case management system. Your information goes straight to our intake team.</p>
       </div>
-      <div class="f-row">
-        <div class="f-field">
-          <label for="em">Email</label>
-          <input id="em" type="email" required autocomplete="email">
-        </div>
-        <div class="f-field">
-          <label for="ph">Phone</label>
-          <input id="ph" type="tel" required autocomplete="tel">
-        </div>
-      </div>
-      <div class="f-field">
-        <label for="topic">What can we help with?</label>
-        <select id="topic" required>
-          <option value="" disabled selected>Select a topic</option>
-          <option>Family-Based Immigration</option>
-          <option>Green Card / Adjustment of Status</option>
-          <option>Citizenship &amp; Naturalization</option>
-          <option>Employment-Based Immigration</option>
-          <option>Humanitarian Relief (Asylum, TPS, VAWA, U Visa)</option>
-          <option>Removal / Deportation Defense</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div class="f-field">
-        <label for="msg">Message</label>
-        <textarea id="msg" required placeholder="Briefly describe your situation. Please don't include confidential details until an attorney-client relationship is established."></textarea>
-      </div>
-      <button class="btn btn-primary" type="submit">Send Message</button>
+      <iframe
+        src="https://mcnamaralaw.cliogrow.com/inquiry"
+        title="McNamara Law intake form"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allow="clipboard-write">
+      </iframe>
       <p class="privacy">Submitting this form does not create an attorney-client relationship.</p>
-    </form>
+    </div>
   </div>
 </section>
 
@@ -811,6 +827,45 @@
 </footer>
 
 <script>
+
+  // Cursor glow — soft cobalt trail that follows the pointer
+  (function(){
+    const glow = document.querySelector('.cursor-glow');
+    if (!glow) return;
+    if (window.matchMedia('(pointer: coarse)').matches) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    let mx = 0, my = 0, gx = 0, gy = 0, raf = null, visible = false;
+    const HALF = 120;
+
+    function tick(){
+      gx += (mx - gx) * 0.18;
+      gy += (my - gy) * 0.18;
+      glow.style.transform = `translate3d(${gx - HALF}px, ${gy - HALF}px, 0)`;
+      if (Math.abs(mx - gx) > 0.5 || Math.abs(my - gy) > 0.5) {
+        raf = requestAnimationFrame(tick);
+      } else {
+        raf = null;
+      }
+    }
+
+    window.addEventListener('mousemove', (e) => {
+      mx = e.clientX;
+      my = e.clientY;
+      if (!visible) {
+        gx = mx; gy = my;
+        glow.classList.add('is-visible');
+        visible = true;
+      }
+      if (!raf) raf = requestAnimationFrame(tick);
+    }, {passive: true});
+
+    document.addEventListener('mouseleave', () => {
+      glow.classList.remove('is-visible');
+      visible = false;
+    });
+  })();
+
   // FAQ accordion
   document.querySelectorAll('.faq-q').forEach(btn => {
     btn.addEventListener('click', () => {
